@@ -20,7 +20,14 @@ class LoadUserData implements FixtureInterface
         $userAdmin->setPlainPassword('admin');
         $userAdmin->setEnabled(true);
 
+        $alex = new User();
+        $alex->setUsername('alex');
+        $alex->setEmail('brouwer.alexander@gmail.com');
+        $alex->setPlainPassword('alex');
+        $alex->setEnabled(true);
+
         $manager->persist($userAdmin);
+        $manager->persist($alex);
         $manager->flush();
     }
 } 
