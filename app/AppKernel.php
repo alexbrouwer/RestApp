@@ -17,9 +17,12 @@ class AppKernel extends Kernel
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
-            new FOS\UserBundle\FOSUserBundle(),
 
             new Gearbox\ClientBundle\GearboxClientBundle(),
+            // This should be replaced at some point with a custom theme bundle
+            new Braincrafted\Bundle\BootstrapBundle\BraincraftedBootstrapBundle(),
+
+            new FOS\UserBundle\FOSUserBundle(),
             new Gearbox\SecurityBundle\GearboxSecurityBundle(),
         );
 
