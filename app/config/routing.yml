@@ -1,3 +1,7 @@
+gearbox_security:
+    resource: "@GearboxSecurityBundle/Resources/config/routing.yml"
+    prefix:   /
+
 gearbox_client:
     resource: "@GearboxClientBundle/Resources/config/routing.yml"
     prefix:   /
