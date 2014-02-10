@@ -49,6 +49,11 @@ assetic:
 braincrafted_bootstrap:
     less_filter: less
 
+ornicar_gravatar:
+    rating: g
+    size: 20
+    default: mm
+
 # Doctrine Configuration
 doctrine:
     dbal:

@@ -21,6 +21,7 @@ class AppKernel extends Kernel
             new Gearbox\ClientBundle\GearboxClientBundle(),
             // This should be replaced at some point with a custom theme bundle
             new Braincrafted\Bundle\BootstrapBundle\BraincraftedBootstrapBundle(),
+            new Ornicar\GravatarBundle\OrnicarGravatarBundle(),
 
             new FOS\UserBundle\FOSUserBundle(),
             new Gearbox\SecurityBundle\GearboxSecurityBundle(),
