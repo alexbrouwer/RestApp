@@ -1,0 +1,3 @@
+gearbox_client_homepage:
+    pattern:  /
+    defaults: { _controller: GearboxClientBundle:Default:index }

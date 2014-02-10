@@ -1,0 +1,4 @@
+gearbox_client:
+    resource: "@GearboxClientBundle/Resources/config/routing.yml"
+    prefix:   /
+
