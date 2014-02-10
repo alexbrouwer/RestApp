@@ -1,4 +1,3 @@
 gearbox_security_user:
     type: rest
     resource: Gearbox\SecurityBundle\Controller\UserController
-    prefix: /user

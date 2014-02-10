@@ -3,12 +3,3 @@ Gearbox\SecurityBundle\Entity\User:
     access_type: public_method
 
     properties:
-        id:
-            expose: true
-            read_only: true
-
-        username:
-            expose: true
-
-        email:
-            expose: true

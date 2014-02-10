@@ -39,7 +39,7 @@
         "jquery/jquery":  "1.10.*",
         "ornicar/gravatar-bundle" : "dev-master",
         "friendsofsymfony/rest-bundle": "1.1.*",
-        "jms/serializer-bundle": "0.12.*",
+        "jms/serializer-bundle": "0.13.*",
         "nelmio/api-doc-bundle": "@stable"
     },
     "require-dev": {

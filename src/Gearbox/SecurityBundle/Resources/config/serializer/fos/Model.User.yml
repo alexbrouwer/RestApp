@@ -1,0 +1,21 @@
+FOS\UserBundle\Model\User:
+    exclusion_policy: ALL
+    access_type: public_method
+
+    properties:
+        id:
+            expose: true
+            read_only: true
+            groups: [list, details]
+
+        username:
+            expose: true
+            groups: [list, details]
+
+        email:
+            expose: true
+            groups: [me, ROLE_ADMIN]
+
+        roles:
+            expose: true
+            groups: [details]
