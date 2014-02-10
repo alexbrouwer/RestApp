@@ -1,0 +1,42 @@
+{% extends "GearboxSecurityBundle::layout.html.twig" %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block title %}Login{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {% stylesheets "bundles/gearboxsecurity/css/signin.css" %}
+    <link href="{{ asset_url }}" rel="stylesheet">
+    {% endstylesheets %}
+{% endblock %}
+
+{% block fos_user_content %}
+
+    <div class="container">
+
+        <form class="form-signin" role="form" action="{{ path("fos_user_security_check") }}" method="post">
+
+            <h2 class="form-signin-heading">Please sign in</h2>
+
+            {% if error %}
+                <div class="alert alert-danger">{{ error|trans }}</div>
+            {% endif %}
+
+            <input type="text" class="form-control" placeholder="{{ 'security.login.username'|trans }}" id="username" name="_username" value="{{
+            last_username }}" autofocus="autofocus" />
+
+            <input type="password" class="form-control" placeholder="{{ 'security.login.password'|trans }}" id="password" name="_password" />
+
+            <label for="remember_me" class="checkbox">
+                <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+                {{ 'security.login.remember_me'|trans }}
+            </label>
+
+            <input type="submit" id="_submit" name="_submit" class="btn btn-lg btn-primary btn-block" value="{{ 'security.login.submit'|trans }}" />
+
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+        </form>
+
+    </div> <!-- /container -->
+{% endblock fos_user_content %}
