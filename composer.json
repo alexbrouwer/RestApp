@@ -37,7 +37,10 @@
         "braincrafted/bootstrap-bundle": "2.0.*",
         "twbs/bootstrap": "3.1.*",
         "jquery/jquery":  "1.10.*",
-        "ornicar/gravatar-bundle" : "dev-master"
+        "ornicar/gravatar-bundle" : "dev-master",
+        "friendsofsymfony/rest-bundle": "1.1.*",
+        "jms/serializer-bundle": "0.12.*",
+        "nelmio/api-doc-bundle": "@stable"
     },
     "require-dev": {
         "elao/web-profiler-extra-bundle" : "~2.3@dev"

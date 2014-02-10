@@ -28,6 +28,7 @@ framework:
 twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
+    exception_controller: 'FOS\RestBundle\Controller\ExceptionController::showAction'
 
 # Assetic Configuration
 assetic:
@@ -84,3 +85,49 @@ fos_user:
     db_driver: orm
     firewall_name: main
     user_class: Gearbox\SecurityBundle\Entity\User
+
+sensio_framework_extra:
+    view:    { annotations: false }
+    router:  { annotations: true }
+
+jms_serializer:
+    property_naming:
+        separator:  _
+        lower_case: true
+    handlers:
+        datetime:
+            default_format: "c"
+            default_timezone: "UTC"
+    metadata:
+        auto_detection: true
+
+fos_rest:
+    format_listener:
+        rules:
+            # setting fallback_format to json means that instead of considering the next rule in case of a priority mismatch, json will be used
+            - { path: '^/', priorities: ['json', 'xml'], fallback_format: json, prefer_extension: false }
+    view:
+        view_response_listener: 'force'
+        formats:
+            json: true
+            xml: true
+        templating_formats:
+            html: true
+        force_redirects:
+            html: true
+        failed_validation: HTTP_BAD_REQUEST
+        default_engine: twig
+    disable_csrf_role: ROLE_API
+    allowed_methods_listener: true
+    routing_loader:
+        include_format:       false
+    access_denied_listener:
+        json: true
+    exception:
+        codes:
+            'Symfony\Component\Routing\Exception\ResourceNotFoundException': 404
+            'Doctrine\ORM\OptimisticLockException': HTTP_CONFLICT
+        messages:
+            'Symfony\Component\Routing\Exception\ResourceNotFoundException': true
+    serializer:
+        serialize_null: true

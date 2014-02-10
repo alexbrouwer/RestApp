@@ -1,0 +1,14 @@
+Gearbox\SecurityBundle\Entity\User:
+    exclusion_policy: ALL
+    access_type: public_method
+
+    properties:
+        id:
+            expose: true
+            read_only: true
+
+        username:
+            expose: true
+
+        email:
+            expose: true

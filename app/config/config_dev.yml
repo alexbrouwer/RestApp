@@ -34,3 +34,12 @@ assetic:
 
 #swiftmailer:
 #    delivery_address: me@example.com
+
+nelmio_api_doc:
+    name: API Docs
+    sandbox:
+        body_format: json
+
+        request_format:
+            method: accept_header
+            default_format: json
