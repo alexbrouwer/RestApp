@@ -35,7 +35,7 @@
         "doctrine/doctrine-fixtures-bundle": "dev-master",
         "friendsofsymfony/user-bundle": "~2.0@dev",
         "braincrafted/bootstrap-bundle": "2.0.*",
-        "twbs/bootstrap": "3.0.*",
+        "twbs/bootstrap": "3.1.*",
         "jquery/jquery":  "1.10.*",
         "ornicar/gravatar-bundle" : "dev-master"
     },
