@@ -33,7 +33,7 @@ twig:
 assetic:
     debug:          "%kernel.debug%"
     use_controller: false
-    bundles:        [ FOSUserBundle ]
+    bundles:        [ FOSUserBundle, GearboxSecurityBundle, GearboxClientBundle ]
     #java: /usr/bin/java
     filters:
         less:
