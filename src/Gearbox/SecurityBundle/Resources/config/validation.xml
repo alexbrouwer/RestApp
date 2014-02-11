@@ -1,0 +1,34 @@
+<?xml version="1.0" ?>
+<constraint-mapping xmlns="http://symfony.com/schema/dic/constraint-mapping"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/constraint-mapping
+        http://symfony.com/schema/dic/constraint-mapping/constraint-mapping-1.0.xsd">
+
+    <class name="Gearbox\SecurityBundle\Entity\User">
+        <constraint name="Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity">
+            <option name="fields">usernameCanonical</option>
+            <option name="errorPath">username</option>
+            <option name="message">fos_user.username.already_used</option>
+        </constraint>
+
+        <constraint name="Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity">
+            <option name="fields">emailCanonical</option>
+            <option name="errorPath">email</option>
+            <option name="message">fos_user.email.already_used</option>
+        </constraint>
+
+        <property name="username">
+            <constraint name="NotBlank"/>
+            <constraint name="Length">
+                <option name="min">4</option>
+                <option name="max">30</option>
+            </constraint>
+        </property>
+
+        <property name="email">
+            <constraint name="NotBlank"/>
+            <constraint name="Email"/>
+        </property>
+    </class>
+
+</constraint-mapping>

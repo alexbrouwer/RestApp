@@ -1,3 +1,4 @@
 gearbox_security_user:
     type: rest
     resource: Gearbox\SecurityBundle\Controller\UserController
+    name_prefix: api_

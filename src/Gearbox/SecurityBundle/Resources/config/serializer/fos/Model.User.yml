@@ -14,7 +14,7 @@ FOS\UserBundle\Model\User:
 
         email:
             expose: true
-            groups: [me, ROLE_ADMIN]
+            groups: [owner, ROLE_ADMIN]
 
         roles:
             expose: true
