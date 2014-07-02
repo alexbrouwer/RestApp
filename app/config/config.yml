@@ -85,6 +85,8 @@ fos_user:
     db_driver: orm
     firewall_name: main
     user_class: Gearbox\SecurityBundle\Entity\User
+    group:
+        group_class: Gearbox\SecurityBundle\Entity\Group
 
 sensio_framework_extra:
     view:    { annotations: false }

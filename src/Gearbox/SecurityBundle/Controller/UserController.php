@@ -8,12 +8,9 @@ use FOS\RestBundle\Routing\ClassResourceInterface;
 use FOS\RestBundle\Util\Codes;
 use FOS\RestBundle\View\View;
 use Gearbox\SecurityBundle\Entity\User;
-
 use Gearbox\SecurityBundle\Form\UserType;
-use JMS\Serializer\SerializationContext;
 use Nelmio\ApiDocBundle\Annotation\ApiDoc;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
-
 use Symfony\Component\Form\FormTypeInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
@@ -36,6 +33,10 @@ class UserController extends FOSRestController implements ClassResourceInterface
      *  }
      * )
      *
+     * @RestView(
+     *  serializerGroups={"userDetails","groupList"}
+     * )
+     *
      * @param string $name Name of user
      *
      * @return array
@@ -44,22 +45,7 @@ class UserController extends FOSRestController implements ClassResourceInterface
     {
         $user = $this->getEntity($name);
 
-        $view = $this->view($user);
-        $view->setTemplateVar('user');
-
-        $serializationGroups = array('details');
-
-        // @TODO This should be done always and automatically!
-        if ($this->getUser() == $user) {
-            $serializationGroups[] = 'owner';
-        }
-        foreach ($this->getUser()->getRoles() as $role) {
-            $serializationGroups[] = $role;
-        }
-
-        $view->setSerializationContext(SerializationContext::create()->setGroups($serializationGroups));
-
-        return $this->handleView($view);
+        return array('user' => $user);
     }
 
     /**
@@ -74,7 +60,7 @@ class UserController extends FOSRestController implements ClassResourceInterface
      * )
      *
      * @RestView(
-     *  serializerGroups={"list"}
+     *  serializerGroups={"userList", "groupList"}
      * )
      *
      * @Security("has_role('ROLE_ADMIN')")
@@ -209,6 +195,16 @@ class UserController extends FOSRestController implements ClassResourceInterface
     }
 
     /**
+     * Update password
+     *
+     * @param $name
+     * @param Request $request
+     */
+    public function patchPasswordAction($name, Request $request)
+    {
+    }
+
+    /**
      * @param string $name
      *
      * @return User
@@ -218,7 +214,7 @@ class UserController extends FOSRestController implements ClassResourceInterface
     private function getEntity($name)
     {
         $userManager = $this->container->get('fos_user.user_manager');
-        $user = $userManager->findUserByUsername($name);
+        $user        = $userManager->findUserByUsername($name);
         if (!$user instanceof User) {
             throw $this->createNotFoundException(sprintf('User %s not found', $name));
         }

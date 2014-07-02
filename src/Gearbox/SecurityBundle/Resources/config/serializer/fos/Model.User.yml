@@ -6,16 +6,17 @@ FOS\UserBundle\Model\User:
         id:
             expose: true
             read_only: true
-            groups: [list, details]
+            groups: [userList, userDetails]
 
         username:
             expose: true
-            groups: [list, details]
+            groups: [userList, userDetails]
 
         email:
             expose: true
-            groups: [owner, ROLE_ADMIN]
+            groups: [userDetails]
 
-        roles:
+        groups:
             expose: true
-            groups: [details]
+            read_only: true
+            groups: [userList, userDetails]

@@ -1,0 +1,5 @@
+Gearbox\SecurityBundle\Entity\Group:
+    exclusion_policy: ALL
+    access_type: public_method
+
+    properties:

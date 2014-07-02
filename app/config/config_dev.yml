@@ -32,6 +32,10 @@ monolog:
 assetic:
     use_controller: true
 
+jms_serializer:
+    metadata:
+        cache: ~
+
 #swiftmailer:
 #    delivery_address: me@example.com
 

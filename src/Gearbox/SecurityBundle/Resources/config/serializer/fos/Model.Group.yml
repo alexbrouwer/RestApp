@@ -1,0 +1,18 @@
+FOS\UserBundle\Model\Group:
+    exclusion_policy: ALL
+    access_type: public_method
+
+    properties:
+        id:
+            expose: true
+            read_only: true
+            groups: [groupList, groupDetails]
+
+        name:
+            expose: true
+            groups: [groupList, groupDetails]
+
+        roles:
+            expose: true
+            read_only: true
+            groups: [groupDetails]

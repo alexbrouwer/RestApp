@@ -19,12 +19,15 @@ class LoadUserData implements FixtureInterface
         $userAdmin->setEmail('alexander@odmedia.nl');
         $userAdmin->setPlainPassword('admin');
         $userAdmin->setEnabled(true);
+        $userAdmin->addRole('ROLE_ADMIN');
+        $userAdmin->addRole('ROLE_API');
 
         $alex = new User();
         $alex->setUsername('alex');
         $alex->setEmail('brouwer.alexander@gmail.com');
         $alex->setPlainPassword('alex');
         $alex->setEnabled(true);
+        $alex->addRole('ROLE_API');
 
         $manager->persist($userAdmin);
         $manager->persist($alex);
